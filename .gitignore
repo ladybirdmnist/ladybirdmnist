@@ -1,0 +1,8 @@
+ladybirdmnist.egg-info/
+build/
+dist/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyw
