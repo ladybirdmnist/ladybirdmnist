@@ -24,7 +24,7 @@ class LadybirdMNIST(VisionDataset):
         'pattern-128': [
             ['pattern-128', '2b32ffa3a2c9dea03695a7fb3180b9c2'],
         ],
-        'pde': [['pde', '2ce4c674eed1cd8ed0686bc24eaa7cb4']],
+        'pde': [['pde', '44272373c52e65ff8ebd41681f0096bb']],
         'state': [['state', '2ce4c674eed1cd8ed0686bc24eaa7cb4']],
         # '_label': [['label', '4a74f24622c11f53abad657b124698e6'],],
     }
@@ -34,7 +34,7 @@ class LadybirdMNIST(VisionDataset):
         'morph-128': ['1HYbQbGBMDf78NZUAXzW2cOAikc23uooU', 'e9fa01d8b20c1f63aab41a9d3d90a2bb'], 
         'pattern-28': ['1PPX2S5rSXeP9CVCOza5le93m5xVAcdSX', 'f3f127866a28ae5668fc12b64c7b1dc4'],
         'pattern-128': ['1r9Ntv9uHPKhZ7Er-o-hLcBfqb4iQ0UC7', 'b2528406dbd292494e053d177a6b0328'],
-        'pde': ['1xhWLQRxkaM5ltJT0Lny5PnOVW0DzjBba', '18ff008137be66d3d7f1964ffb2ee71b'],
+        'pde': ['1-6HmLhYe2-53jwa3IE4zvTDMWFdG95uj', 'fdeaae66105476bbe2f8133304cf6aed'],
         'state': ['1xhWLQRxkaM5ltJT0Lny5PnOVW0DzjBba', '18ff008137be66d3d7f1964ffb2ee71b'],
         # '_label': ['1Efglx5h1GobmBGz47plfZfNnKKDJ9TWB', '36ad544d71958ed1fdd3d8c9ec46d88f'],
     }
@@ -47,6 +47,7 @@ class LadybirdMNIST(VisionDataset):
         download: bool = False,
         dataset: List[str] = ['morph-28'],
         random_seed: int = 42,
+        shuffle: bool = True,
     ) -> None:
         super().__init__(root, transform=transform)
 
@@ -98,7 +99,8 @@ class LadybirdMNIST(VisionDataset):
 
         self._load_meta()
 
-        self._shuffle_data()
+        if shuffle:
+            self._shuffle_data()
 
     def _shuffle_data(self) -> None:
         rng = np.random.RandomState(self.random_seed)
