@@ -1,6 +1,7 @@
 ladybirdmnist.egg-info/
 build/
 dist/
+results/
 __pycache__/
 *.pyc
 *.pyo
