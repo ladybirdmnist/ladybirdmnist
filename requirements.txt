@@ -1,6 +1,6 @@
 gdown
-torch
-torchvision
 numpy
 pickle
 pathlib
+joblib
+openpyxl
