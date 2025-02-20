@@ -59,8 +59,8 @@ if __name__ == "__main__":
         }
         
         df = pd.DataFrame(results, columns=["Model", "Accuracy", "Train Time", "Test Time"])
-        df.to_excel(f"./benchmark/results/machinelearning/{dataset_name}/machinelearning_results.xlsx", index=False)
-        joblib.dump(model_info, f"./benchmark/results/machinelearning/{dataset_name}/{name}_{acc:.4f}.pkl")
+        df.to_excel(f"./benchmark/classification/results/machinelearning/{dataset_name}/machinelearning_results.xlsx", index=False)
+        joblib.dump(model_info, f"./benchmark/classification/results/machinelearning/{dataset_name}/{name}_{acc:.4f}.pkl")
 
     for name, acc, train_time, test_time in results:
         print(f"{name}: {acc:.4f}, train_time: {train_time:.4f}, test_time: {test_time:.4f}")
