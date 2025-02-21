@@ -1,6 +1,5 @@
 gdown
 numpy
-pickle
 pathlib
 joblib
 openpyxl
