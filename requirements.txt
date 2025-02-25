@@ -1,5 +1,8 @@
 gdown
-numpy
 pathlib
 joblib
 openpyxl
+seaborn
+matplotlib
+umap-learn
+numpy==2.1
