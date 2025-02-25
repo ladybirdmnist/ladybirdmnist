@@ -25,7 +25,7 @@ class LadybirdMNIST(VisionDataset):
         'pattern-128': [
             ['pattern-128', '2b32ffa3a2c9dea03695a7fb3180b9c2'],
         ],
-        'pde': [['pde', '44272373c52e65ff8ebd41681f0096bb']],
+        'pde': [['pde', 'c67c415ea206bec1c7587fa9097712cb']],
         'state': [
                     ['state_0', 'b2a64b032fb77cc68af18169371558de'],
                     ['state_1', 'df4987ea0baf52634f4e59cb50323e8a'],
@@ -42,7 +42,7 @@ class LadybirdMNIST(VisionDataset):
         'morph-128': ['1HYbQbGBMDf78NZUAXzW2cOAikc23uooU', 'e9fa01d8b20c1f63aab41a9d3d90a2bb'], 
         'pattern-28': ['1PPX2S5rSXeP9CVCOza5le93m5xVAcdSX', 'f3f127866a28ae5668fc12b64c7b1dc4'],
         'pattern-128': ['1r9Ntv9uHPKhZ7Er-o-hLcBfqb4iQ0UC7', 'b2528406dbd292494e053d177a6b0328'],
-        'pde': ['1-6HmLhYe2-53jwa3IE4zvTDMWFdG95uj', 'fdeaae66105476bbe2f8133304cf6aed'],
+        'pde': ['1-6HmLhYe2-53jwa3IE4zvTDMWFdG95uj', '624f963996108a25891db734d5387616'],
         'state': ['1JgStxSiBZaUrC8-Estyl_nBjRw9Qh9AN', '10f8046e0eabf186881ee75131d3cb55'],
         'meta': ['1BnsAuA0hxJjkByqBN6eynADC02YLYXf-', '2bd4b7dd4ca23aeee01f68c1ecd00c57'],
         # '_label': ['1Efglx5h1GobmBGz47plfZfNnKKDJ9TWB', '36ad544d71958ed1fdd3d8c9ec46d88f'],
