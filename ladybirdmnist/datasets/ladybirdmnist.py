@@ -51,7 +51,7 @@ class LadybirdMNIST(VisionDataset):
     def __init__(
         self,
         root: Union[str, Path],
-        train: bool = True,
+        split: Union[bool, str] = True,
         transform: Optional[Callable] = None,
         download: bool = False,
         dataset: List[str] = ['morph-28'],
@@ -83,20 +83,29 @@ class LadybirdMNIST(VisionDataset):
                     entry = pickle.load(f)
                 all_data.extend(entry['data'])
 
-            if train:
-                for i in range(10):
+            if split == True or split == 'train':
+                for i in range(10): 
                     tmp_data = all_data[i*7000:(i+1)*7000]
                     np.random.shuffle(tmp_data)
                     data.extend(tmp_data[:6000]) # 6000 for train
                     tmp_label.extend([i] * 6000)
 
-            else:
+            elif split == False or split == 'test':
                 for i in range(10):
                     tmp_data = all_data[i*7000:(i+1)*7000]
                     np.random.shuffle(tmp_data)
                     data.extend(tmp_data[6000:])
                     tmp_label.extend([i] * 1000)
 
+            elif split == 'all':
+                for i in range(10):
+                    tmp_data = all_data[i*7000:(i+1)*7000]
+                    np.random.shuffle(tmp_data)
+                    data.extend(tmp_data)
+                    tmp_label.extend([i] * 7000)
+
+            else:
+                raise ValueError(f"Invalid split: {split}")
             self.data.append(data)
             self.label.extend(tmp_label)
 
