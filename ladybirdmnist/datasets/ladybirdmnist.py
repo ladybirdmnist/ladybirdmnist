@@ -2,6 +2,7 @@ import os
 import os.path
 import numpy as np
 import pickle
+import json
 from pathlib import Path
 from typing import Any, Callable, List, Optional, Tuple, Union
 
@@ -26,6 +27,7 @@ class LadybirdMNIST(VisionDataset):
         ],
         'pde': [['pde', '44272373c52e65ff8ebd41681f0096bb']],
         'state': [['state', '2ce4c674eed1cd8ed0686bc24eaa7cb4']],
+        'meta': [['meta', 'cbd5a6ab3afdd305a62ad4986035bb89']],
         # '_label': [['label', '4a74f24622c11f53abad657b124698e6'],],
     }
 
@@ -36,6 +38,7 @@ class LadybirdMNIST(VisionDataset):
         'pattern-128': ['1r9Ntv9uHPKhZ7Er-o-hLcBfqb4iQ0UC7', 'b2528406dbd292494e053d177a6b0328'],
         'pde': ['1-6HmLhYe2-53jwa3IE4zvTDMWFdG95uj', 'fdeaae66105476bbe2f8133304cf6aed'],
         'state': ['1xhWLQRxkaM5ltJT0Lny5PnOVW0DzjBba', '18ff008137be66d3d7f1964ffb2ee71b'],
+        'meta': ['1BnsAuA0hxJjkByqBN6eynADC02YLYXf-', '2bd4b7dd4ca23aeee01f68c1ecd00c57'],
         # '_label': ['1Efglx5h1GobmBGz47plfZfNnKKDJ9TWB', '36ad544d71958ed1fdd3d8c9ec46d88f'],
     }
 
@@ -112,7 +115,11 @@ class LadybirdMNIST(VisionDataset):
         self.label = [self.label[idx] for idx in indices]
 
     def _load_meta(self) -> None:
-        pass
+        meta_path = os.path.join(self.root, 'raw', 'meta')
+        with open(meta_path, 'rb') as f:
+            self.meta_dict = pickle.load(f)
+        self.classes = self.meta_dict['classes']
+        self.pde_params = self.meta_dict['pde_params']
 
     def __getitem__(self, index: int) -> Tuple[Any, Any]:
         tmp_data = []
@@ -141,6 +148,9 @@ class LadybirdMNIST(VisionDataset):
                 fpath = os.path.join(self.root, 'raw', file_name)
                 if not check_integrity(fpath, md5):
                     return False
+        meta_path = os.path.join(self.root, 'raw', 'meta')
+        if not check_integrity(meta_path, self.data_dict['meta'][0][1]):
+            return False
         return True
     
     def download(self) -> None:
@@ -156,4 +166,11 @@ class LadybirdMNIST(VisionDataset):
                 self.root,
                 filename=f"{dataset}.tar.gz", 
                 md5=self.download_url[dataset][1],
+            )
+
+            download_and_extract_archive(
+                f"https://drive.google.com/file/d/{self.download_url['meta'][0]}", 
+                self.root,
+                filename='meta.tar.gz',
+                md5=self.download_url['meta'][1],
             )
