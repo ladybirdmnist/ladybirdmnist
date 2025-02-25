@@ -26,7 +26,13 @@ class LadybirdMNIST(VisionDataset):
             ['pattern-128', '2b32ffa3a2c9dea03695a7fb3180b9c2'],
         ],
         'pde': [['pde', '44272373c52e65ff8ebd41681f0096bb']],
-        'state': [['state', '2ce4c674eed1cd8ed0686bc24eaa7cb4']],
+        'state': [
+                    ['state_0', 'b2a64b032fb77cc68af18169371558de'],
+                    ['state_1', 'df4987ea0baf52634f4e59cb50323e8a'],
+                    ['state_2', '673f0262df3b33b6f5ec28321a129502'],
+                    ['state_3', '2b9babc0a2a96877ee2e797e2f56f665'],
+                    ['state_4', '55ee43998b418f1c6172ca81f950a861'],
+                  ],
         'meta': [['meta', 'cbd5a6ab3afdd305a62ad4986035bb89']],
         # '_label': [['label', '4a74f24622c11f53abad657b124698e6'],],
     }
@@ -37,7 +43,7 @@ class LadybirdMNIST(VisionDataset):
         'pattern-28': ['1PPX2S5rSXeP9CVCOza5le93m5xVAcdSX', 'f3f127866a28ae5668fc12b64c7b1dc4'],
         'pattern-128': ['1r9Ntv9uHPKhZ7Er-o-hLcBfqb4iQ0UC7', 'b2528406dbd292494e053d177a6b0328'],
         'pde': ['1-6HmLhYe2-53jwa3IE4zvTDMWFdG95uj', 'fdeaae66105476bbe2f8133304cf6aed'],
-        'state': ['1xhWLQRxkaM5ltJT0Lny5PnOVW0DzjBba', '18ff008137be66d3d7f1964ffb2ee71b'],
+        'state': ['1JgStxSiBZaUrC8-Estyl_nBjRw9Qh9AN', '10f8046e0eabf186881ee75131d3cb55'],
         'meta': ['1BnsAuA0hxJjkByqBN6eynADC02YLYXf-', '2bd4b7dd4ca23aeee01f68c1ecd00c57'],
         # '_label': ['1Efglx5h1GobmBGz47plfZfNnKKDJ9TWB', '36ad544d71958ed1fdd3d8c9ec46d88f'],
     }
