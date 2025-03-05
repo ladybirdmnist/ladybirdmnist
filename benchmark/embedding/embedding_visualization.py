@@ -8,13 +8,13 @@ from scipy.spatial.distance import mahalanobis
 from umap import UMAP
 
 if __name__ == '__main__':
-    dpath = './benchmark/embedding/results/morph-28'
+    dataset = 'morph-128'
+    dpath = f'./benchmark/embedding/results/{dataset}'
     model_names = ['resnet18', 'resnet50', 'vgg11', 'vgg16', 'vit_base_patch16_224', 'vit_tiny_patch16_224', 'vit_small_patch16_224', 'efficientnet_b0']
     for model_name in model_names:
         data = np.load(f'{dpath}/{model_name}.npz')
         embeddings = data['embeddings']
         labels = data['labels']
-
         saved_dir =  f'{dpath}/visualization/{model_name}'
         os.makedirs(saved_dir, exist_ok=True)
 

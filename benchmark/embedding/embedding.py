@@ -36,10 +36,10 @@ def main():
             transforms.Resize((224,224)),
             timm.data.create_transform(**config, is_training=True)
         ])
-
+    args.shuffle = False
     train_dataset = LadybirdMNIST(
         root='./data/LadybirdMNIST',
-        train=True,
+        split='all',
         download=True,
         transform=transform,
         dataset = [args.dataset],
@@ -63,6 +63,7 @@ def main():
     with torch.no_grad():
         for batch_idx, (data, labels) in enumerate(train_loader):
             data, labels = data[0].to(device), labels
+            # print(labels)
             features = model.forward_features(data)
             features = model.forward_head(features)
             embeddings.append(features.detach().cpu().numpy())
