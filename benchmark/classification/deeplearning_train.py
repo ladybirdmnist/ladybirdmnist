@@ -34,11 +34,14 @@ def main():
             timm.data.create_transform(**config, is_training=True)
         ])
     else:
-        transform = timm.data.create_transform(**config, is_training=True)
+        transform = transforms.Compose([
+            transforms.Resize((224,224)),
+            timm.data.create_transform(**config, is_training=True)
+        ])
 
     train_dataset = LadybirdMNIST(
         root='./data/LadybirdMNIST',
-        train=True,
+        split='train',
         download=True,
         transform=transform,
         dataset = [args.dataset],
